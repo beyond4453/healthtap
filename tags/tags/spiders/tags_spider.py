@@ -12,7 +12,7 @@ class Question_Tags_Spider(scrapy.Spider):
     name = "question_tags"
     allowed_domains = ['www.healthtap.com']
 
-    f = open('urls_question.txt')
+    f = open('urls_qid.txt')
     start_urls = [ url.strip() for url in f.readlines()  ]
     f.close()
     
@@ -49,7 +49,7 @@ class Answer_Tags_Spider(scrapy.Spider):
     name = "answer_tags"
     allowed_domains = ['www.healthtap.com']
     
-    f = open('urls_question.txt')
+    f = open('urls_qid.txt')
     start_urls = [ url.strip() for url in f.readlines() ]
     f.close()
 
