@@ -101,7 +101,8 @@ class QuestionSpider(CrawlSpider):
     start_urls = [
         #"https://www.healthtap.com/user_questions/44318",
         #"https://www.healthtap.com/topics/Depression",
-        "https://www.healthtap.com/topics/Asthma",
+        #"https://www.healthtap.com/topics/Asthma",
+        "https://www.healthtap.com/topics/Arthritis",
     ]
 
     rules = (
