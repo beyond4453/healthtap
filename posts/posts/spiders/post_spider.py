@@ -56,7 +56,9 @@ class AnswerSpider(scrapy.Spider):
             item['answer_id'] = aid[0]
         
     def get_rid(self, response, item):
-        rid = response.url.strip().split('/')[-1]
+        #rid = response.url.strip().split('/')[-1]
+        rid = response.xpath("//div[@class='page-wrapper']/@data-questionid").extract()
+        rid = rid[0]
         if rid:
             print "related_id:" + rid
             item['related_id'] = rid
@@ -102,7 +104,8 @@ class QuestionSpider(CrawlSpider):
         #"https://www.healthtap.com/user_questions/44318",
         #"https://www.healthtap.com/topics/Depression",
         #"https://www.healthtap.com/topics/Asthma",
-        "https://www.healthtap.com/topics/Arthritis",
+        #"https://www.healthtap.com/topics/Arthritis",
+        "https://www.healthtap.com/answers_by_specialty/allergy",
     ]
 
     rules = (
@@ -126,9 +129,11 @@ class QuestionSpider(CrawlSpider):
         yield item
     
     def get_qid(self, response, item):
-        qid = response.url.strip().split('/')[-1]
-        print "question_id:" + qid
+        #qid = response.url.strip().split('/')[-1]
+        qid = response.xpath("//div[@class='page-wrapper']/@data-questionid").extract()
+        qid = qid[0]
         if qid:
+            print "question_id:" + qid
             item['question_id'] = qid
     
     #def get_uid(self, response, item):

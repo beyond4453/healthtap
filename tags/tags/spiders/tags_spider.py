@@ -30,7 +30,9 @@ class Question_Tags_Spider(scrapy.Spider):
         yield item
 
     def get_qid(self, response, item):
-        qid = response.url.strip().split('/')[-1]
+        #qid = response.url.strip().split('/')[-1]
+        qid = response.xpath("//div[@class='page-wrapper']/@data-questionid").extract()
+        qid = qid[0]
         print "question_id:" + qid
         if qid:
             item['question_id'] = qid
