@@ -105,7 +105,8 @@ class QuestionSpider(CrawlSpider):
         #"https://www.healthtap.com/topics/Depression",
         #"https://www.healthtap.com/topics/Asthma",
         #"https://www.healthtap.com/topics/Arthritis",
-        "https://www.healthtap.com/answers_by_specialty/allergy",
+        #"https://www.healthtap.com/answers_by_specialty/allergy",
+        "https://www.healthtap.com/topics/Heart%20Disease",
     ]
 
     rules = (
