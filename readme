@@ -1,2 +1,61 @@
 # This is the project for scrapy the data from the healthtap
-# Use it for fun 
+# Use it for fun
+#
+# This data crawled from the https://www.healthtap.com
+# 
+# There are 8 topics : 
+# Topics                  Start_urls
+# allergy		: https://www.healthtap.com/answers_by_specialty/allergy
+# Alzheimer's Disease   : https://www.healthtap.com/topics/Alzheimer's%20Disease
+# Arthritis		: https://www.healthtap.com/topics/Arthritis
+# Asthma		: https://www.healthtap.com/topics/Asthma
+# Depression		: https://www.healthtap.com/topics/depression
+# gout			: https://www.healthtap.com/topics/gout
+# heart disease		: https://www.healthtap.com/topics/Heart%20Disease
+# hypertenson		: https://www.healthtap.com/topics/Hypertension
+
+There are 5 folders inside the healthtap. 
+
+data  --- used for stored the crawled data
+posts --- used for crawling the question.json && answer.json for each topic
+tags  --- used for crawling the qtags.json for each topic
+users --- used for crawling the user.json for each topic
+urls  --- generate the urls for the above using
+
+Guide For Using this project : (eg:For topic Depression)
+
+1. in the posts dir, use the follow command to crawl the question data :
+   scrapy crawl question_posts -o question.json
+
+2. copy the question.json file to the urls dir, execute parse_qid.py to generate a question url list file(urls_qid.txt)
+
+3. copy the urls_qid.txt to tags dir && posts dir 
+
+4. in the posts dir, user the follow command to crawl the answer data :
+   scrapy crawl answer_posts -o answer.json
+   in the tags dir, use the follow command to crawl the question_tag data :
+   scrapy crawl question_tags -o qtags.json
+
+5. After answer.json is done, copy answer.json to urls dir, execute parse_uid.py to generate a user url list file(urls_uid.txt)
+
+6. copy urls_uid.txt to users dir
+
+7. in the users dir, use the follow command to crawl the user data :
+   scrapy crawl users -o user.json
+
+At last, you can move all the crawled data to the data dir if you like, and crawl other topics just the same. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
