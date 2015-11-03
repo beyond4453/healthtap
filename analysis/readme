@@ -1,0 +1,19 @@
+Data Instruction:
+
+answer.json file : 
+This file is the data crawled from the healthtap.com randomly with json format.
+It includes about 14781 answers belongs to 10045 questions. (because one question maybe has more than one answer).
+Each answer has a related_id which means the question_id.
+Each answer has a vote number.
+
+qapair.txt:
+I wirte some script code to split the answer.json file into qapair.txt.
+This file has this format :
+[question_id, best_answer_vote, second_answer_vote, third_answer_vote, ...]
+
+vote_sum.txt:
+I use Python to calculate from the qapair.txt file to generate this file.
+It has 1~9th answer's :total number of votes, number of answers, average number of votes.
+
+If you have any question, please let konw
+beyond_acm@163.com
