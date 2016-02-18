@@ -23,5 +23,13 @@ class UsersItem(scrapy.Item):
     user_edu = scrapy.Field()
     user_interest = scrapy.Field()
     user_followed = scrapy.Field()
+    
+    user_saved = scrapy.Field()
+    user_helped = scrapy.Field()
+    user_agrees = scrapy.Field()
+    user_thanks = scrapy.Field()
+    user_recommends = scrapy.Field()
+    #user_stars = scrapy.Field()
+
 
     #pass

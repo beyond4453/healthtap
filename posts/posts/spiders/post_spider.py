@@ -10,34 +10,35 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.exceptions import CloseSpider
 
 
+
 class AnswerSpider(scrapy.Spider):
     name = "answer_posts"
     allowed_domains = ['www.healthtap.com']
     
-    f = open('urls_qid.txt')
+    #f = open('urls_qid.txt', 'r')
     #f = file('urls.txt', "r")
-    start_urls = [ url.strip() for url in f.readlines() ]
-    f.close()
+    #start_urls = [ url.strip() for url in f.readlines() ]
+    #f.close()
 
     #item_count = 0
     #close_down = False
     
-    '''
-    rules = (
-        Rule(LinkExtractor(allow=r"/user_questions/*"),
-        callback = "parse_answer", follow = False),              
-    )    
-    '''
+    
+    #rules = (
+    #    Rule(LinkExtractor(allow=r"/user_questions/*"),
+    #    callback = "parse_answer", follow = False),              
+    #)    
+    
 
     def parse(self, response):
         
-        '''
-        if self.item_count > 10000:
-            self.close_down = True
+        
+        #if self.item_count > 10000:
+        #    self.close_down = True
 
-        if self.close_down:
-            raise CloseSpider(reason = 'Data Filled')
-        '''
+        #if self.close_down:
+        #    raise CloseSpider(reason = 'Data Filled')
+
         item = AnswerItem()
         for sel in response.xpath("//div[@class='questions-container']/div"):
             self.get_aid(response, sel, item)
@@ -105,8 +106,8 @@ class QuestionSpider(CrawlSpider):
         #"https://www.healthtap.com/topics/Depression",
         #"https://www.healthtap.com/topics/Asthma",
         #"https://www.healthtap.com/topics/Arthritis",
-        #"https://www.healthtap.com/answers_by_specialty/allergy",
-        "https://www.healthtap.com/topics/Heart%20Disease",
+        "https://www.healthtap.com/answers_by_specialty/allergy",
+        #"https://www.healthtap.com/topics/Heart%20Disease",
     ]
 
     rules = (
@@ -116,7 +117,7 @@ class QuestionSpider(CrawlSpider):
     
     def parse_question(self, response):
         
-        if self.item_count >= 10000:
+        if self.item_count >= 50000:
             self.close_down = True
 
         if self.close_down:
@@ -126,6 +127,7 @@ class QuestionSpider(CrawlSpider):
         self.get_qid(response, item)
         self.get_qcontent(response, item)
         self.item_count = self.item_count + 1
+        print self.item_count
 
         yield item
     

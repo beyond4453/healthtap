@@ -49,6 +49,13 @@ class UserSpider(scrapy.Spider):
         self.get_ufollow(response, item)
         self.get_uinterest(response, item)
         
+        self.get_usaved(response, item)
+        self.get_uhelped(response, item)
+        self.get_uagrees(response, item)
+        self.get_uthanks(response, item)
+        self.get_recommends(response, item)
+        #self.get_ustars(response, item)
+
         #self.item_count = self.item_count + 1
         #print self.item_count 
 
@@ -135,3 +142,42 @@ class UserSpider(scrapy.Spider):
         if ufollow:
             #print ufollow
             item['user_followed'] = ufollow
+
+
+    def get_usaved(self, response, item):
+        usaved = response.xpath("//div[@class='saved-icon']/../span/text()").extract()
+        usaved = "".join(usaved).strip()
+        if usaved :
+            #print usaved
+            item['user_saved'] = usaved
+
+    def get_uhelped(self, response, item):
+        uhelped = response.xpath("//div[@class='helped-icon']/../span/text()").extract()
+        uhelped = "".join(uhelped).strip()
+        if uhelped :
+            item['user_helped'] = uhelped
+
+    def get_uagrees(self, response, item):
+        uagrees = response.xpath("//div[@class='agrees-icon']/../span/text()").extract()
+        uagrees = "".join(uagrees).strip()
+        if uagrees :
+            item['user_agrees'] = uagrees
+
+    def get_uthanks(self, response, item):
+        uthanks = response.xpath("//div[@class='thanks-icon']/../span/text()").extract()
+        uthanks = "".join(uthanks).strip()
+        if uthanks :
+            item['user_thanks'] = uthanks
+
+    def get_recommends(self, response, item):
+        urecommends = response.xpath("//div[@class='testimonial-note']/text()").extract()
+        #urecommends = "".join(urecommends).strip()
+        #urecommends = map(lambda it : it.strip, urecommends)
+        urecommends = [str(x).strip() for x in urecommends]
+        if urecommends :
+            item['user_recommends'] = urecommends
+
+
+
+
+

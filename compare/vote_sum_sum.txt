@@ -1,0 +1,10 @@
+Sum votes of best answer:50800 Number of best answer:48986 Average votes of best answer:1.03703098845
+Sum votes of second answer:10223 Number of second answer:15471 Average votes of second answer:0.660784693944
+Sum votes of third answer:2261 Number of third answer:3832 Average votes of third answer:0.59003131524
+Sum votes of 4th answer:589 Number of 4th answer:1075 Average votes of 4th answer:0.547906976744
+Sum votes of 5th answer:192 Number of 5th answer:343 Average votes of 5th answer:0.559766763848
+Sum votes of 6th answer:84 Number of 6th answer:135 Average votes of 6th answer:0.622222222222
+Sum votes of 7th answer:30 Number of 7th answer:61 Average votes of 7th answer:0.491803278689
+Sum votes of 8th answer:15 Number of 8th answer:26 Average votes of 8th answer:0.576923076923
+Sum votes of 9th answer:9 Number of 9th answer:13 Average votes of 9th answer:0.692307692308
+Sum votes of 10th answer:5 Number of 10th answer:9 Average votes of 10th answer:0.555555555556
